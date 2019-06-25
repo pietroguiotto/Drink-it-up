@@ -105,7 +105,7 @@ function raisingWater() {
 
 function locallyStoredAmount(){
     sumOfDrinks = parseInt(localStorageAmountValue)
-    targetLeft.innerHTML = 2000 - sumOfDrinks
+    targetLeft.innerHTML = `${(2000 - sumOfDrinks)} ml`
     result.innerHTML = `${parseInt(localStorageAmountValue)} ml`
     raisingWater()
     return
