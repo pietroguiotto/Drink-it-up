@@ -1,2 +1,4 @@
 # Drink-it-up
-Single page app to keep track of water drank during the day
+Single page app to keep track of water drank during the day.
+
+Uses localStorage to memorize values if you leave the page.
