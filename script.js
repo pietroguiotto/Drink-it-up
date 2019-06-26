@@ -9,7 +9,7 @@ const winner = document.querySelector('#winner')
 let currentDate = new Date()
 let localStorageAmountValue = localStorage.getItem('currentAmount')
 
-let sumOfDrinks = parseInt(localStorageAmountValue)
+let sumOfDrinks = 0
 let targetGoal = 2000
 
 
