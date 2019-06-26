@@ -7,11 +7,9 @@ let waterPercentage  = document.querySelector('#waterPercentage')
 let clock = document.querySelector('#clock')
 const winner = document.querySelector('#winner')
 let currentDate = new Date()
-let localStorageAmountValue = localStorage.getItem('currentAmount')
 
 let sumOfDrinks = 0
 let targetGoal = 2000
-
 
 const beverages = [
     {
@@ -116,10 +114,10 @@ function raisingWater() {
     }
 }
 
-function locallyStoredAmount(){
-    sumOfDrinks = parseInt(localStorageAmountValue)
+function locallyStoredAmount(value){
+    sumOfDrinks = parseInt(value)
     targetLeft.innerHTML = `${(2000 - sumOfDrinks)} ml`
-    result.innerHTML = `${parseInt(localStorageAmountValue)} ml`
+    result.innerHTML = `${parseInt(value)} ml`
     if(sumOfDrinks >= 2000){
         goalReached()
     }
@@ -128,9 +126,11 @@ function locallyStoredAmount(){
 }
 
 function checkLocalStorage() {
+    let localStorageAmountValue = localStorage.getItem('currentAmount')
+
     if(!localStorageAmountValue){
         return
-    } locallyStoredAmount()
+    } return locallyStoredAmount(localStorageAmountValue)
 }
 
 function setCurrentDate(){
