@@ -7,6 +7,8 @@ https://pg-8.github.io/Drink-it-up/
 
 **UP NEXT**
 
+- Historical data 30 past days
+- Replace timer with button triggered tooltip 
 - Custom values button
 - Undo button
 - Styling
