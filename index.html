@@ -9,7 +9,8 @@
     <body>
         <div class="sectionContainer">
             <div id="title">
-                <h2>How much water would a glass of water drink if a glass of water could drink as much water as a glass of water?</h2>
+                <h2>Drink it up!</h2>
+                <p>Water daily intake easy tracker</p>
             </div>
             <div class="sectionA">
                 <ul id="beverages">
@@ -34,18 +35,23 @@
                     <h3 id="targetLeft"> 2000 ml</h3>
                 </div>
             <div class="sectionD">
-                <p>Time until reset: </p>
-                <p id="clock"> Loading..</p>
+                <!-- <p>Time until reset: </p> -->
+                <!-- <p id="clock"> Loading..</p> -->
+                <div class="tooltip">⏳
+                    <span class="tooltiptext">
+                        <p id="clock"> Loading..</p>
+                    </span>
+                </div>
             </div>
             </div>
-            <div class='sectionE' id="waterLevel"><p id="waterPercentage"></p>
+            <p id="waterPercentage"></p>
+            <div class='sectionE' id="waterLevel">
             </div>
            <div id="test">
                 <ul id="chart"></ul>
             </div>
             <div id="winner" style="visibility: hidden">
                 <h1>Daily goal reached!</h1>
-                <h1>✅</h1>
             </div>
         </div>
         <script src="./script.js"></script>

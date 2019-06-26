@@ -34,9 +34,9 @@ function test(){
 
         y.style.paddingTop = `${(dailyAmount[i])}vh`
         if(dailyAmount[i]<10){
-        y.textContent = `0${dailyAmount[i]}`
+        y.textContent = `0${dailyAmount[i]}%`
     } else {
-        y.textContent = `${dailyAmount[i]}`
+        y.textContent = `${dailyAmount[i]}%`
 
     }
 
