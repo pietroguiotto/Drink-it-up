@@ -34,13 +34,13 @@ html, body {
 }
 
 body {
-    background-color: rgba(0, 0, 0, 0.70)
+    background-color: #30393D
 }
 
 #waterLevel {
     display: flex;
     width: 100%;
-    background-color: rgba(135, 206, 250, 0.8);
+    background-color:rgba(197, 235, 252, 0.5);
     height: 0%;
     z-index: -1;
     bottom: 0;
@@ -74,13 +74,22 @@ li {
     color: rgba(0, 0, 0, 0.5);
     padding: 0 20px;
     font-style: italic;
-    bottom: 0;
+    top: 0;
     position: absolute;
+}
+
+#horiz{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#title{
+    text-align: center
 }
 
 button{
     border: none;
-    background-color:rgba(255,255,255,0.7);
+    background-color:#93B0BD;
     color: black;
     border-radius: 5px;
     font-size: 1.5em;
@@ -95,7 +104,7 @@ button:hover{
 #winner{
     width: 100vw;
     height: 100vh;
-    background-color: rgba(255, 255, 255,0.89);
+    background-color: rgba(255, 255, 255,0.5);
     position: absolute;
     display: flex;
     justify-content: center;
