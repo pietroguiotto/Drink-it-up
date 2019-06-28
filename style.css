@@ -18,14 +18,13 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-
+    color: white;
 }
 .sectionC{
     display: flex;
     justify-content: center;
     align-items: center;
-
+    color: white;
 }
 .sectionD{
     position: absolute;
@@ -58,6 +57,10 @@ h2 {
     font-size: 390%;
 }
 
+#title{
+    color: white;
+}
+
 #title p{
     font-style: italic;
     margin-top: 0;
@@ -83,7 +86,7 @@ li {
 }
 
 #waterPercentage{
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 1);
     padding: 0 20px;
     font-style: italic;
     top: 0;
@@ -99,7 +102,7 @@ li {
     text-align: center
 }
 
-button{
+button, input{
     border: none;
     background-color:#93B0BD;
     color: black;
@@ -107,8 +110,13 @@ button{
     font-size: 1.5em;
     transition: 0.2s;
 }
+input {
+    text-align: center;
+    font-style: italic;
+    font-size: small
+}
 
-button:hover{
+button:hover, input:hover{
     background-color: rgba(255, 255, 255,1);
     cursor: pointer;
 }
@@ -128,29 +136,26 @@ button:hover{
     white-space: nowrap;
     padding: 10px;
 }
-
-    /* TESTING AREA */
-
-    .tooltip {
-        padding: 10px;
-        margin: 10px;
-        background-color: rgba(255, 255, 255, 0.5);
-        border-radius: 20px;
-      }
-      
-      .tooltip .tooltiptext {
-        visibility: hidden;
-        /* background-color: rgba(0, 0, 0, 0.5); */
-        color: #fff;
-        border-radius: 6px;
-        padding: 0;
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        right: 105%;
-      }
-      
-      .tooltip:hover .tooltiptext {
-        visibility: visible;
-        padding: 0;
-      }
+    
+.tooltip {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+}
+    
+.tooltip .tooltiptext {
+    visibility: hidden;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 105%;
+}
+    
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    padding: 0;
+}

@@ -6,6 +6,7 @@ const waterLevel = document.querySelector('#waterLevel')
 let waterPercentage  = document.querySelector('#waterPercentage')
 let clock = document.querySelector('#clock')
 const winner = document.querySelector('#winner')
+let customValue = document.querySelector('#customValue')
 let currentDate = new Date()
 
 let sumOfDrinks = 0
@@ -72,6 +73,29 @@ function addDrink(){
         }
     }
     console.log("no such drink")
+}
+
+function addCustomDrink(customA){
+    console.log(customA)
+        if (customA >= 0){
+            sumOfDrinks += parseInt(customA)
+            if(sumOfDrinks <= 0){
+                limitSubZero()
+            }
+            result.innerHTML = ` ${sumOfDrinks} ml`
+            goal()
+            localStorage.setItem('currentAmount', sumOfDrinks)
+            if(sumOfDrinks <= 0){
+                result.innerHTML = `0 ml`
+                targetLeft.innerHTML = `2000 ml`
+            }else if(sumOfDrinks >= 2000){
+                raisingWater()
+                goalReached()
+            }
+            raisingWater()
+            return sumOfDrinks
+        }
+    alert("not a valid input")
 }
 
 function timeLeft() {
@@ -154,6 +178,7 @@ function resetWater() {
 
 function goalReached(){
     winner.style.visibility = 'visible'
+    customValue.disabled = true;
 }
 
 // showWinner(){
@@ -163,6 +188,8 @@ function goalReached(){
 function hideWinner(){
     winner.style.visibility = 'hidden'
     resetWater()
+    customValue.disabled = false;
+
 }
 
 function limitSubZero(){
@@ -170,11 +197,23 @@ localStorage.setItem('currentAmount', 0)
 sumOfDrinks = 0
 }
 
+function addCustomValue(e){
+    const key = e.which || e.keyCode;
+    if (key === 13) {
+      addCustomDrink(customValue.value)
+      customValue.value = ""
+      document.focus()
+    }
+    return
+}
+
 checkLocalStorage()
 setCurrentDate()
 setInterval(timeLeft, 1000)
 buttons.forEach(button => button.addEventListener('click', addDrink))
+customValue.addEventListener('keypress', addCustomValue)
 winner.addEventListener('click', hideWinner)
+
 // SCRAP METAL GAS PEDAL
 /* 
 
