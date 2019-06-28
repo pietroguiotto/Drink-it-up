@@ -30,17 +30,15 @@ function createElements(value){
 function test(){
     const x = document.querySelectorAll('#chart li')
     for(let i = 0; i <= daysOfMonth.length; i++){
-        let y = x[i]
-
-        y.style.paddingTop = `${(dailyAmount[i])}vh`
-        if(dailyAmount[i]<10){
-        y.textContent = `0${dailyAmount[i]}%`
-    } else {
-        y.textContent = `${dailyAmount[i]}%`
-
+        x[i].style.paddingTop = `${(dailyAmount[i])}vh`
+            if(dailyAmount[i]<10){
+                x[i].textContent = `0${dailyAmount[i]}%`
+            } 
+            else {
+                x[i].textContent = `${dailyAmount[i]}%`
+            }
     }
-
-    }
+    return
 }
 
 pushDays()

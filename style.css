@@ -132,6 +132,10 @@ button:hover, input:hover{
     flex-direction: column;
 }
 
+#winner p{
+    margin: 0;
+}
+
 #clock{
     white-space: nowrap;
     padding: 10px;
