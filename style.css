@@ -156,6 +156,8 @@ button:hover, input:hover{
 
 #winner p{
     margin: 0;
+    font-size: small;
+    font-style: italic;
 }
 
 #clock{
