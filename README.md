@@ -10,7 +10,7 @@ https://pg-8.github.io/Drink-it-up/
 - Fix NaN assignment when initiating the page for the first time
 - Historical data 30 past days
 - ~Replace timer with hourglass icon:hover tooltip~
-- Custom values button
+- ~Custom value button~
 - Undo button
 - Styling (mobile friendliness)
 - Merge/bundle/clean code
