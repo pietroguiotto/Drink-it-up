@@ -72,11 +72,10 @@ function addDrink(){
             return sumOfDrinks
         }
     }
-    console.log("no such drink")
+    console.log("No such drink")
 }
 
 function addCustomDrink(customA){
-    console.log(customA)
         if (customA >= 0){
             sumOfDrinks += parseInt(customA)
             if(sumOfDrinks <= 0){
@@ -95,14 +94,11 @@ function addCustomDrink(customA){
             raisingWater()
             return sumOfDrinks
         }
-    alert("not a valid input")
+    alert("Not a valid input")
 }
 
 function timeLeft() {
     let now = new Date()
-    //let hours = now.getHours()
-    //let minutes = now.getMinutes()
-    //let seconds = now.getSeconds()
     let diffHours = 23 - parseInt(now.getHours())
     let diffMin = 59 - parseInt(now.getMinutes())
     let diffSec = 59 - parseInt(now.getSeconds())
@@ -131,7 +127,6 @@ function raisingWater() {
 
     } else {
     waterPercentage.style.visibility = 'visible'
-    // waterLevel.style.visibility = 'visible'
     waterLevel.style.position = 'absolute'
     waterLevel.style.height = `${valueWater}%`
     document.querySelector('#waterPercentage').innerHTML = `${valueWater}/100%`
@@ -181,10 +176,6 @@ function goalReached(){
     customValue.disabled = true;
 }
 
-// showWinner(){
-//     winner.style.visibility = 'visible'
-// }
-
 function hideWinner(){
     winner.style.visibility = 'hidden'
     resetWater()
@@ -202,7 +193,7 @@ function addCustomValue(e){
     if (key === 13) {
       addCustomDrink(customValue.value)
       customValue.value = ""
-      document.focus()
+      return
     }
     return
 }
@@ -217,6 +208,8 @@ winner.addEventListener('click', hideWinner)
 // SCRAP METAL GAS PEDAL
 /* 
 
-
+// showWinner(){
+//     winner.style.visibility = 'visible'
+// }
 
 */
