@@ -13,4 +13,5 @@ https://pg-8.github.io/Drink-it-up/
 - ~Custom value button~
 - Undo button
 - Styling (mobile friendliness)
+- Validate input field
 - Merge/bundle/clean code
