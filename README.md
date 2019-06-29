@@ -8,7 +8,7 @@ https://pg-8.github.io/Drink-it-up/
 **UP NEXT**
 
 - ~Fix NaN assignment when initiating the page for the first time~
-- Historical data 30 past days
+- Historical data (30 past days -or less- considering proportions)
 - ~Replace timer with hourglass icon:hover tooltip~
 - ~Custom value button~
 - Undo button
