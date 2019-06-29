@@ -9,6 +9,7 @@ https://pg-8.github.io/Drink-it-up/
 
 - ~Fix NaN assignment when initiating the page for the first time~
 - Historical data (30 past days -or less- considering proportions)
+- Test background chart feature using mockup button (+1 day)
 - ~Replace timer with hourglass icon:hover tooltip~
 - ~Custom value button~
 - Undo button
