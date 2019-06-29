@@ -39,16 +39,20 @@ function attivaHistory(){
 function test(){
     const x = document.querySelectorAll('#chart li')
     for(let i = 0; i <= savedHistory.length; i++){
-        x[i].style.paddingTop = `${(savedHistory[i])}vh`
+        x[i].style.paddingTop = `${Math.floor(savedHistory[i])}vh`
             if(savedHistory[i]<10){
-                x[i].textContent = `0${savedHistory[i]}%`
+                x[i].textContent = `0${Math.floor(savedHistory[i])}%`
             } 
             else {
-                x[i].textContent = `${savedHistory[i]}%`
+                x[i].textContent = `${Math.floor(savedHistory[i])}%`
             }
     }
     return
 }
+
+function highlightToday(){
+}
+
 
 function applyHistory(){
     saveHistory()

@@ -78,6 +78,7 @@ function addDrink(){
 }
 
 function addCustomDrink(customA){
+    customValue.value = ""
         if (customA >= 0){
             sumOfDrinks += parseInt(customA)
             if(sumOfDrinks <= 0){
@@ -132,8 +133,8 @@ function raisingWater() {
     } else {
     waterPercentage.style.visibility = 'visible'
     waterLevel.style.position = 'absolute'
-    waterLevel.style.height = `${valueWater}%`
-    document.querySelector('#waterPercentage').innerHTML = `${valueWater}/100%`
+    waterLevel.style.height = `${Math.floor(valueWater)}%`
+    document.querySelector('#waterPercentage').innerHTML = `${Math.floor(valueWater)}/100%`
     }
 }
 
@@ -196,7 +197,6 @@ function addCustomValue(e){
     const key = e.which || e.keyCode;
     if (key === 13) {
       addCustomDrink(customValue.value)
-      customValue.value = ""
       return
     }
     return

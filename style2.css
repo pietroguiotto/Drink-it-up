@@ -38,5 +38,6 @@ position: absolute;
     font-size: small;
     font-weight: bold;
     flex-grow: 1;
+    transition: 0.2s;
 }
 
