@@ -69,6 +69,8 @@ function addDrink(){
                 goalReached()
             }
             raisingWater()
+            setTodaysValue()
+            applyHistory()
             return sumOfDrinks
         }
     }
@@ -92,6 +94,8 @@ function addCustomDrink(customA){
                 goalReached()
             }
             raisingWater()
+            setTodaysValue()
+            applyHistory()
             return sumOfDrinks
         }
     alert("Not a valid input")
