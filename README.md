@@ -5,6 +5,12 @@ Uses localStorage to memorize values if you leave the page.
 
 https://pg-8.github.io/Drink-it-up/
 
+**ISSUES TO FIX**
+
+- Initialization of historical data is failing
+- Initialization of "empty" array is failing
+
+
 **UP NEXT**
 
 - ~Fix NaN assignment when initiating the page for the first time~
