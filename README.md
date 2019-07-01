@@ -4,6 +4,9 @@
 
 **ISSUES TO FIX**
 
+- Remove obscene array called "objectForTest" initialized with 31 zeros in it
+- Rename non meaningfully named variables and functions in script.js
+- Rename non meaningfully named classes and IDs in index.html and style.css
 - Initialization of historical data background with % values is failing
 - Initialization of "empty" array is failing
 

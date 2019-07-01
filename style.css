@@ -1,194 +1,220 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-}
-
-body{
-    --bg-color: #1370FB;
-    --dot-color: #3882E8;
-    --dot-space: 22px;
-    --dot-size: 20px;
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
-    background-color:rgb(64, 86, 102);
-    background-image: 
-        linear-gradient(rgba(255,255,255, 0.07) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(255,255,255, 0.07) 2px, transparent 2px),
-        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-    background-size: 
-        100px 100px, 
-        100px 100px, 
-        20px 20px, 
-        20px 20px;
-    background-position:
-        -2px -2px, 
-        -2px -2px, 
-        -1px -1px, 
-        -1px -1px;
+	--bg-color: #1370fb;
+	--dot-color: #3882e8;
+	--dot-space: 22px;
+	--dot-size: 20px;
+}
+
+body {
+	background-color: rgb(64, 86, 102);
+	background-image: linear-gradient(
+			rgba(255, 255, 255, 0.07) 2px,
+			transparent 2px
+		),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.07) 2px, transparent 2px),
+		linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+	background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+	background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
 .sectionContainer {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
-.sectionA{
-    display: flex;
-    justify-content: space-evenly;
+.sectionA {
+	display: flex;
+	justify-content: space-evenly;
 }
 
-.sectionB{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+.sectionB {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
 }
-.sectionC{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+.sectionC {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
 }
-.sectionD{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    right: 0;
-    top: 0;
+.sectionD {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	right: 0;
+	top: 0;
 }
 
 #waterLevel {
-    display: flex;
-    width: 100%;
-    background-color:rgba(197, 235, 252, 0.7);
-    height: 0%;
-    z-index: -1;
-    bottom: 0;
-    position: absolute;
-    transition: 0.5s;
+	display: flex;
+	width: 100%;
+	background-color: rgba(197, 235, 252, 0.7);
+	height: 0%;
+	z-index: -1;
+	bottom: 0;
+	position: absolute;
+	transition: 0.5s;
 }
 
 h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    font-size: 390%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	font-size: 390%;
 }
 
-#title{
-    color: white;
+#title {
+	color: white;
 }
 
-#title p{
-    font-style: italic;
-    margin-top: 0;
-    padding-top:0;
-    align-items: center;
-
+#title p {
+	font-style: italic;
+	margin-top: 0;
+	padding-top: 0;
+	align-items: center;
 }
 
-h3{
-    line-height: 0;
+h3 {
+	line-height: 0;
 }
 
-#beverages{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 0;
+#beverages {
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0;
 }
 
 #beverages li {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 0 10px;
+	list-style: none;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0 10px;
 }
 
-#waterPercentage{
-    color: rgba(255, 255, 255, 1);
-    padding: 0 20px;
-    font-style: italic;
-    top: 0;
-    position: absolute;
+#waterPercentage {
+	color: rgba(255, 255, 255, 1);
+	padding: 0 20px;
+	font-style: italic;
+	top: 0;
+	position: absolute;
 }
 
-#horiz{
-    display: flex;
-    justify-content: space-evenly;
+#horiz {
+	display: flex;
+	justify-content: space-evenly;
 }
 
-#title{
-    text-align: center
+#title {
+	text-align: center;
 }
 
-button, input{
-    border: none;
-    background-color: rgba(255, 255, 255, 0.7);
-    color: black;
-    border-radius: 5px;
-    font-size: small;
-    transition: 0.2s;
+button,
+input {
+	border: none;
+	background-color: rgba(255, 255, 255, 0.7);
+	color: black;
+	border-radius: 5px;
+	font-size: small;
+	transition: 0.2s;
 }
 input {
-    text-align: center;
-    color: black;
+	text-align: center;
+	color: black;
 }
 
-button:hover, input:hover{
-    background-color: rgba(255, 255, 255,1);
-    cursor: pointer;
+button:hover,
+input:hover {
+	background-color: rgba(255, 255, 255, 1);
+	cursor: pointer;
 }
 
-#winner{
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(255, 255, 255,0.5);
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+#winner {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(255, 255, 255, 0.5);
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
-#winner p{
-    margin: 0;
-    font-size: small;
-    font-style: italic;
+#winner p {
+	margin: 0;
+	font-size: small;
+	font-style: italic;
 }
 
-#clock{
-    color: rgba(255, 255, 255, 1);
-    padding: 0 20px;
-    font-style: italic;
-    top: 0;
-    right: 0;
-    white-space: nowrap;
-    position: absolute;
+#clock {
+	color: rgba(255, 255, 255, 1);
+	padding: 0 20px;
+	font-style: italic;
+	top: 0;
+	right: 0;
+	white-space: nowrap;
+	position: absolute;
 }
-    
+
 .tooltip {
-    padding: 10px;
-    margin: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
+	padding: 10px;
+	margin: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
 }
-    
+
 .tooltip .tooltiptext {
-    visibility: hidden;
-    color: #fff;
-    border-radius: 6px;
-    padding: 0;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 105%;
+	visibility: hidden;
+	color: #fff;
+	border-radius: 6px;
+	padding: 0;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 105%;
 }
-    
+
 .tooltip:hover .tooltiptext {
-    visibility: visible;
-    padding: 0;
+	visibility: visible;
+	padding: 0;
+}
+
+#test {
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: -2;
+	position: absolute;
+}
+
+#chart {
+	list-style: none;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-end;
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+}
+
+#chart li {
+	color: black;
+	background-color: rgba(153, 186, 202, 0.4);
+	text-align: center;
+	font-size: small;
+	font-weight: bold;
+	flex-grow: 1;
+	transition: 0.2s;
 }
