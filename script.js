@@ -46,6 +46,7 @@ let objectForTest = [
 ]
 let storedHistoricalValues = localStorage.getItem('historicalValues%')
 const currentValueOfWater = localStorage.getItem('currentAmount')
+let firstTimeSavedHistoryLocalStorage = localStorage.getItem('savedHistory')
 let savedHistory = []
 let sumOfDrinks = 0
 let targetGoal = 2000
@@ -107,7 +108,7 @@ function addDrink() {
 				raisingWater()
 				goalReached()
 			}
-			raisingWater()
+            raisingWater()
 			setTodaysValue()
 			applyHistory()
 			return sumOfDrinks
@@ -260,15 +261,15 @@ function minusOne() {
 
 function setTodaysValue() {
 	const currentValueOfWater = localStorage.getItem('currentAmount')
-	let index = parseInt(localStorage.getItem('currentDate') - 1)
-	savedHistory.splice(index, 1, parseInt(currentValueOfWater) / 20)
-	localStorage.setItem('historicalValues%', JSON.stringify(savedHistory))
+    let index = parseInt(localStorage.getItem('currentDate') - 1)
+    let abcd = JSON.parse(localStorage.getItem('savedHistory'))
+	abcd.splice(index, 1, parseInt(currentValueOfWater) / 20)
+	localStorage.setItem('historicalValues%', JSON.stringify(abcd))
 }
 
 function saveHistory() {
 	savedHistory = JSON.parse(localStorage.getItem('historicalValues%'))
 	localStorage.setItem('savedHistory', JSON.stringify(savedHistory))
-	console.log(savedHistory.length)
 }
 
 function test() {
@@ -289,7 +290,23 @@ function applyHistory() {
 	test()
 }
 
+function firstTimeCheckSavedHistoryLocalStorage () {
+    // check if history exists
+    // if it exists, use it
+    // if it does not exist, create it all = 0
+    let x = localStorage.getItem('historicalValues%')
+    if (!x) {
+        localStorage.setItem('historicalValues%', JSON.stringify(objectForTest))
+        console.log('not historical values existing')
+    } else {
+        console.log('yes historical values existing')
+    }
+}
+
 checkLocalStorage()
+
+firstTimeCheckSavedHistoryLocalStorage()
+
 setCurrentDate()
 setInterval(timeLeft, 1000)
 buttons.forEach(button => button.addEventListener('click', addDrink))
@@ -297,5 +314,7 @@ customValue.addEventListener('keypress', addCustomValue)
 winner.addEventListener('click', hideWinner)
 objectForTest.forEach(createElements)
 applyHistory()
+
+
 
 // SCRAP METAL BELOW THIS POINT
