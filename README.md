@@ -2,15 +2,14 @@
 
 **Single page app to keep track of water drank during the day. Uses localStorage to memorize values if you leave the page.**
 
+**ISSUES TO FIX**
+
+- Initialization of historical data background with % values is failing
+- Initialization of "empty" array is failing
+
 https://pg-8.github.io/Drink-it-up/
 
 ![https://pg-8.github.io/Drink-it-up/](https://raw.githubusercontent.com/PG-8/Drink-it-up/master/DrinkItUpScreen.png)
-
-**ISSUES TO FIX**
-
-- Initialization of historical data is failing
-- Initialization of "empty" array is failing
-
 
 **UP NEXT**
 
@@ -24,3 +23,5 @@ https://pg-8.github.io/Drink-it-up/
 - Styling (mobile friendliness)
 - Validate input field
 - Merge/bundle/clean code
+- **REMOVE** static values from scripts (eg. arrays, variables..)
+- **OPTIONAL** refactoring using React
