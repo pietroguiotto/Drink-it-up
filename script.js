@@ -8,6 +8,7 @@ const waterLevel = document.querySelector('#waterLevel')
 let waterPercentage = document.querySelector('#waterPercentage')
 let clock = document.querySelector('#clock')
 const winner = document.querySelector('#winner')
+const individualBar = document.querySelectorAll('#chart')
 let customValue = document.querySelector('#customValue')
 let currentDate = new Date()
 let objectForTest = [
@@ -108,13 +109,12 @@ function addDrink() {
 				raisingWater()
 				goalReached()
 			}
-            raisingWater()
+			raisingWater()
 			setTodaysValue()
 			applyHistory()
 			return sumOfDrinks
 		}
 	}
-	console.log('No such drink')
 }
 
 function addCustomDrink(customA) {
@@ -261,8 +261,8 @@ function minusOne() {
 
 function setTodaysValue() {
 	const currentValueOfWater = localStorage.getItem('currentAmount')
-    let index = parseInt(localStorage.getItem('currentDate') - 1)
-    let abcd = JSON.parse(localStorage.getItem('savedHistory'))
+	let index = parseInt(localStorage.getItem('currentDate') - 1)
+	let abcd = JSON.parse(localStorage.getItem('savedHistory'))
 	abcd.splice(index, 1, parseInt(currentValueOfWater) / 20)
 	localStorage.setItem('historicalValues%', JSON.stringify(abcd))
 }
@@ -273,13 +273,13 @@ function saveHistory() {
 }
 
 function test() {
-	const x = document.querySelectorAll('#chart li')
+    const individualBar = document.querySelectorAll('#chart li')
 	for (let i = 0; i <= savedHistory.length; i++) {
-		x[i].style.paddingTop = `${Math.floor(savedHistory[i])}vh`
+		individualBar[i].style.paddingTop = `${Math.floor(savedHistory[i])}vh`
 		if (savedHistory[i] < 10) {
-			x[i].textContent = `0${Math.floor(savedHistory[i])}%`
+			individualBar[i].textContent = `0${Math.floor(savedHistory[i])}%`
 		} else {
-			x[i].textContent = `${Math.floor(savedHistory[i])}%`
+			individualBar[i].textContent = `${Math.floor(savedHistory[i])}%`
 		}
 	}
 	return
@@ -290,17 +290,13 @@ function applyHistory() {
 	test()
 }
 
-function firstTimeCheckSavedHistoryLocalStorage () {
-    // check if history exists
-    // if it exists, use it
-    // if it does not exist, create it all = 0
-    let x = localStorage.getItem('historicalValues%')
-    if (!x) {
-        localStorage.setItem('historicalValues%', JSON.stringify(objectForTest))
-        console.log('not historical values existing')
-    } else {
-        console.log('yes historical values existing')
-    }
+function firstTimeCheckSavedHistoryLocalStorage() {
+	let x = localStorage.getItem('historicalValues%')
+	if (!x) {
+		localStorage.setItem('historicalValues%', JSON.stringify(objectForTest))
+	} else {
+		return
+	}
 }
 
 checkLocalStorage()
@@ -314,7 +310,5 @@ customValue.addEventListener('keypress', addCustomValue)
 winner.addEventListener('click', hideWinner)
 objectForTest.forEach(createElements)
 applyHistory()
-
-
 
 // SCRAP METAL BELOW THIS POINT
