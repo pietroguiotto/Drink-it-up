@@ -9,6 +9,7 @@
 - Rename non meaningfully named classes and IDs in index.html and style.css
 - Remove commented out sections for development purposes
 - Remove garbage code playing hide and seek within the collection
+- Raising water z-index to adjust (better looking if placed behind the historical values?)
 
 https://pg-8.github.io/Drink-it-up/
 
