@@ -13,7 +13,7 @@
 
 https://pg-8.github.io/Drink-it-up/
 
-![https://pg-8.github.io/Drink-it-up/](https://raw.githubusercontent.com/PG-8/Drink-it-up/master/DrinkItUpScreen.png)
+![https://pg-8.github.io/Drink-it-up/](https://raw.githubusercontent.com/PG-8/Drink-it-up/cc541b20f75739e7a8d0842d1f1d5f84ea0b7fc0/DrinkItUpScreen.png)
 
 **UP NEXT**
 
