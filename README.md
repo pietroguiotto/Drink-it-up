@@ -7,9 +7,9 @@
 - Find workaround for the array called "objectForTest" which is initialized with 31 zeros in it
 - Rename non meaningfully named variables and functions in script.js
 - Rename non meaningfully named classes and IDs in index.html and style.css
-- Remove commented out sections for development purposes
+- ~Remove commented out sections for development purposes~
 - Remove garbage code playing hide and seek within the collection
-- Raising water z-index to adjust (better looking if placed behind the historical values?)
+- ~Raising water z-index to adjust (better looking if placed behind the historical values?)~
 
 https://pg-8.github.io/Drink-it-up/
 
