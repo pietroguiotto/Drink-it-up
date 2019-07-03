@@ -164,7 +164,7 @@ function goal() {
 }
 
 function raisingWater() {
-	let valueWater = sumOfDrinks / 20
+	let valueWater = (sumOfDrinks / 20)
 	if (sumOfDrinks <= 0) {
 		waterLevel.style.height = 0
 		waterPercentage.style.visibility = 'hidden'
@@ -172,7 +172,7 @@ function raisingWater() {
 	} else {
 		waterPercentage.style.visibility = 'visible'
 		waterLevel.style.position = 'absolute'
-		waterLevel.style.height = `${Math.floor(valueWater)}%`
+		waterLevel.style.height = `${Math.floor(valueWater+2)}%`
 		document.querySelector('#waterPercentage').innerHTML = `${Math.floor(
 			valueWater
 		)}/100%`

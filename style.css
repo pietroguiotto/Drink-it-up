@@ -59,9 +59,9 @@ body {
 #waterLevel {
 	display: flex;
 	width: 100%;
-	background-color: rgba(197, 235, 252, 0.7);
+	background-color: rgba(197, 235, 252, 0.3);
 	height: 0%;
-	z-index: -1;
+	z-index: -2;
 	bottom: 0;
 	position: absolute;
 	transition: 0.5s;
@@ -127,7 +127,7 @@ input {
 	color: black;
 	border-radius: 5px;
 	font-size: small;
-	transition: 0.2s;
+	transition: 0.5s;
 }
 input {
 	text-align: center;
@@ -167,35 +167,12 @@ input:hover {
 	position: absolute;
 }
 
-.tooltip {
-	padding: 10px;
-	margin: 10px;
-	background-color: rgba(255, 255, 255, 0.5);
-	border-radius: 20px;
-}
-
-.tooltip .tooltiptext {
-	visibility: hidden;
-	color: #fff;
-	border-radius: 6px;
-	padding: 0;
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	right: 105%;
-}
-
-.tooltip:hover .tooltiptext {
-	visibility: visible;
-	padding: 0;
-}
-
 #test {
 	bottom: 0;
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: -2;
+	z-index: -1;
 	position: absolute;
 }
 
@@ -216,5 +193,5 @@ input:hover {
 	font-size: small;
 	font-weight: bold;
 	flex-grow: 1;
-	transition: 0.2s;
+	transition: 0.5s;
 }
