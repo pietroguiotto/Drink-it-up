@@ -249,16 +249,6 @@ function createElements(value) {
 	document.querySelector('#chart').appendChild(listItem)
 }
 
-function plusOne() {
-	let currentDatePlus = parseInt(localStorage.getItem('currentDate')) + 1
-	localStorage.setItem('currentDate', currentDatePlus)
-}
-
-function minusOne() {
-	let currentDateMinus = parseInt(localStorage.getItem('currentDate')) - 1
-	localStorage.setItem('currentDate', currentDateMinus)
-}
-
 function setTodaysValue() {
 	const currentValueOfWater = localStorage.getItem('currentAmount')
 	let index = parseInt(localStorage.getItem('currentDate') - 1)
@@ -312,3 +302,13 @@ objectForTest.forEach(createElements)
 applyHistory()
 
 // SCRAP METAL BELOW THIS POINT
+
+// function plusOne() {
+// 	let currentDatePlus = parseInt(localStorage.getItem('currentDate')) + 1
+// 	localStorage.setItem('currentDate', currentDatePlus)
+// }
+
+// function minusOne() {
+// 	let currentDateMinus = parseInt(localStorage.getItem('currentDate')) - 1
+// 	localStorage.setItem('currentDate', currentDateMinus)
+// }
