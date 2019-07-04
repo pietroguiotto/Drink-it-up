@@ -1,6 +1,5 @@
 // Variables declaration
 
-const h2Text = document.querySelector('h2')
 const buttons = document.querySelectorAll('button')
 const result = document.querySelector('#sumOfDrinks')
 const targetLeft = document.querySelector('#targetLeft')
@@ -8,7 +7,6 @@ const waterLevel = document.querySelector('#waterLevel')
 let waterPercentage = document.querySelector('#waterPercentage')
 let clock = document.querySelector('#clock')
 const winner = document.querySelector('#winner')
-const individualBar = document.querySelectorAll('#chart')
 let customValue = document.querySelector('#customValue')
 let currentDate = new Date()
 let objectForTest = [
@@ -45,9 +43,6 @@ let objectForTest = [
 	0,
 	0
 ]
-let storedHistoricalValues = localStorage.getItem('historicalValues%')
-const currentValueOfWater = localStorage.getItem('currentAmount')
-let firstTimeSavedHistoryLocalStorage = localStorage.getItem('savedHistory')
 let savedHistory = []
 let sumOfDrinks = 0
 let targetGoal = 2000
@@ -192,7 +187,6 @@ function locallyStoredAmount(value) {
 
 function checkLocalStorage() {
 	let localStorageAmountValue = localStorage.getItem('currentAmount')
-
 	if (!localStorageAmountValue) {
 		return
 	}
@@ -201,6 +195,7 @@ function checkLocalStorage() {
 
 function setCurrentDate() {
 	if (localStorage.getItem('currentDate') == currentDate.getDate()) {
+		return
 	} else {
 		localStorage.setItem('currentDate', currentDate.getDate())
 		resetWater()
@@ -210,7 +205,6 @@ function setCurrentDate() {
 function resetWater() {
 	waterPercentage.style.visibility = 'hidden'
 	sumOfDrinks = 0
-	let valueWater = sumOfDrinks / 20
 	targetGoal = 2000
 	result.innerHTML = '0 ml'
 	targetLeft.innerHTML = '2000 ml'
@@ -289,12 +283,10 @@ function firstTimeCheckSavedHistoryLocalStorage() {
 	}
 }
 
-checkLocalStorage()
-
-firstTimeCheckSavedHistoryLocalStorage()
-
-setCurrentDate()
 setInterval(timeLeft, 1000)
+checkLocalStorage()
+firstTimeCheckSavedHistoryLocalStorage()
+setCurrentDate()
 buttons.forEach(button => button.addEventListener('click', addDrink))
 customValue.addEventListener('keypress', addCustomValue)
 winner.addEventListener('click', hideWinner)
@@ -302,13 +294,3 @@ objectForTest.forEach(createElements)
 applyHistory()
 
 // SCRAP METAL BELOW THIS POINT
-
-// function plusOne() {
-// 	let currentDatePlus = parseInt(localStorage.getItem('currentDate')) + 1
-// 	localStorage.setItem('currentDate', currentDatePlus)
-// }
-
-// function minusOne() {
-// 	let currentDateMinus = parseInt(localStorage.getItem('currentDate')) - 1
-// 	localStorage.setItem('currentDate', currentDateMinus)
-// }
