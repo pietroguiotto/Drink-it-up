@@ -36,19 +36,14 @@ body {
 	justify-content: space-evenly;
 }
 
-.sectionB {
+.totalValuesStyle {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: white;
 }
-.sectionC {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: white;
-}
-.sectionD {
+
+.timerPositioning {
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -111,7 +106,7 @@ h3 {
 	position: absolute;
 }
 
-#horiz {
+#totalValues {
 	display: flex;
 	justify-content: space-evenly;
 }
@@ -140,7 +135,7 @@ input:hover {
 	cursor: pointer;
 }
 
-#winner {
+#winnerSplashScreen {
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(255, 255, 255, 0.5);
@@ -151,7 +146,7 @@ input:hover {
 	flex-direction: column;
 }
 
-#winner p {
+#winnerSplashScreen p {
 	margin: 0;
 	font-size: small;
 	font-style: italic;
@@ -167,7 +162,7 @@ input:hover {
 	position: absolute;
 }
 
-#test {
+#historicalDataHistogram {
 	bottom: 0;
 	top: 0;
 	left: 0;

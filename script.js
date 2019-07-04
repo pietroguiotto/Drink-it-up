@@ -2,11 +2,11 @@
 
 const buttons = document.querySelectorAll('button')
 const result = document.querySelector('#sumOfDrinks')
-const targetLeft = document.querySelector('#targetLeft')
+const amountLeftToReachGoal = document.querySelector('#amountLeftToReachGoal')
 const waterLevel = document.querySelector('#waterLevel')
 let waterPercentage = document.querySelector('#waterPercentage')
 let clock = document.querySelector('#clock')
-const winner = document.querySelector('#winner')
+const winner = document.querySelector('#winnerSplashScreen')
 let customValue = document.querySelector('#customValue')
 let currentDate = new Date()
 let objectForTest = [
@@ -99,7 +99,7 @@ function addDrink() {
 			localStorage.setItem('currentAmount', sumOfDrinks)
 			if (sumOfDrinks <= 0) {
 				result.innerHTML = `0 ml`
-				targetLeft.innerHTML = `2000 ml`
+				amountLeftToReachGoal.innerHTML = `2000 ml`
 			} else if (sumOfDrinks >= 2000) {
 				raisingWater()
 				goalReached()
@@ -124,7 +124,7 @@ function addCustomDrink(customA) {
 		localStorage.setItem('currentAmount', sumOfDrinks)
 		if (sumOfDrinks <= 0) {
 			result.innerHTML = `0 ml`
-			targetLeft.innerHTML = `2000 ml`
+			amountLeftToReachGoal.innerHTML = `2000 ml`
 		} else if (sumOfDrinks >= 2000) {
 			raisingWater()
 			goalReached()
@@ -152,9 +152,9 @@ function timeLeft() {
 function goal() {
 	let diff = targetGoal - sumOfDrinks
 	if (diff <= 0) {
-		targetLeft.innerHTML = ' Goal reached!!'
+		amountLeftToReachGoal.innerHTML = '0 ml'
 	} else {
-		targetLeft.innerHTML = ` ${diff} ml`
+		amountLeftToReachGoal.innerHTML = ` ${diff} ml`
 	}
 }
 
@@ -176,7 +176,7 @@ function raisingWater() {
 
 function locallyStoredAmount(value) {
 	sumOfDrinks = parseInt(value)
-	targetLeft.innerHTML = `${2000 - sumOfDrinks} ml`
+	amountLeftToReachGoal.innerHTML = `${2000 - sumOfDrinks} ml`
 	result.innerHTML = `${parseInt(value)} ml`
 	if (sumOfDrinks >= 2000) {
 		goalReached()
@@ -207,7 +207,7 @@ function resetWater() {
 	sumOfDrinks = 0
 	targetGoal = 2000
 	result.innerHTML = '0 ml'
-	targetLeft.innerHTML = '2000 ml'
+	amountLeftToReachGoal.innerHTML = '2000 ml'
 	localStorage.removeItem('currentAmount')
 	waterLevel.style.height = 0
 }
