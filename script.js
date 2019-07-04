@@ -159,7 +159,7 @@ function goal() {
 }
 
 function raisingWater() {
-	let valueWater = (sumOfDrinks / 20)
+	let valueWater = sumOfDrinks / 20
 	if (sumOfDrinks <= 0) {
 		waterLevel.style.height = 0
 		waterPercentage.style.visibility = 'hidden'
@@ -167,7 +167,7 @@ function raisingWater() {
 	} else {
 		waterPercentage.style.visibility = 'visible'
 		waterLevel.style.position = 'absolute'
-		waterLevel.style.height = `${Math.floor(valueWater+2)}%`
+		waterLevel.style.height = `${Math.floor(valueWater + 2)}%`
 		document.querySelector('#waterPercentage').innerHTML = `${Math.floor(
 			valueWater
 		)}/100%`
@@ -257,7 +257,7 @@ function saveHistory() {
 }
 
 function test() {
-    const individualBar = document.querySelectorAll('#chart li')
+	const individualBar = document.querySelectorAll('#chart li')
 	for (let i = 0; i <= savedHistory.length; i++) {
 		individualBar[i].style.paddingTop = `${Math.floor(savedHistory[i])}vh`
 		if (savedHistory[i] < 10) {
