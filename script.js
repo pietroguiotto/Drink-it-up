@@ -1,5 +1,5 @@
 // Variables declaration
-const uri = 'sounds/drop.mp3'
+
 const buttons = document.querySelectorAll('button')
 const result = document.querySelector('#sumOfDrinks')
 const amountLeftToReachGoal = document.querySelector('#amountLeftToReachGoal')
@@ -8,8 +8,41 @@ let waterPercentage = document.querySelector('#waterPercentage')
 let clock = document.querySelector('#clock')
 const winner = document.querySelector('#winnerSplashScreen')
 let customValue = document.querySelector('#customValue')
-const chart = document.querySelector('#chart')
 let currentDate = new Date()
+let objectForTest = [
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0
+]
 let savedHistory = []
 let sumOfDrinks = 0
 let targetGoal = 2000
@@ -52,62 +85,12 @@ const beverages = [
 	}
 ]
 
-// on load
-
-window.addEventListener('load', () => {
-		loadAudio(uri)
-		beverages.forEach(i => {
-				const beverage = JSON.stringify(i.type)
-				const li = document.createElement('li')
-				li.style.paddingTop = '0px'
-				li.className = "list-item";
-				li.innerHTML = JSON.parse(beverage)
-				chart.appendChild(li)
-		})
-})
-
 // Functions
 
-function loadAudio(uri) {
-		let audio = new Audio()
-		let isAppLoaded;
-		audio.addEventListener('canplaythrough', isAppLoaded, false)
-		audio.src = uri;
-		return audio;
-}
-
-function playAudio() {
-	const sound = loadAudio(uri)
-	sound.play()
-}
-
-function increaseBeverage(currentBeverage) {
-		const arrayOfDrinks = document.querySelectorAll('#chart li')
-		arrayOfDrinks.forEach(i => {
-				if (currentBeverage.type === i.textContent) {
-						let drinkLevel = localStorage.getItem(`${currentBeverage.type} height`)
-						if (!drinkLevel) {
-								localStorage.setItem(`${currentBeverage.type} height`, i.style.paddingTop)
-								let drinkLevel = localStorage.getItem(`${currentBeverage.type} height`)
-						}
-						let oldPadding = localStorage.getItem(`${currentBeverage.type} height`)
-						let addPadding = currentBeverage.ml
-						let result = parseInt(oldPadding, 10) + addPadding
-						let currentPadding = `${result}px`
-						const minifiedValue = parseInt(currentPadding,10) / 2
-						localStorage.setItem(`${currentBeverage.type} height`, currentPadding)
-						i.style.paddingTop = `${minifiedValue}px`
-				}
-		})
-}
-
 function addDrink() {
-	playAudio()
 	for (let i = 0; i < beverages.length; i++) {
 		if (this.textContent == beverages[i].type) {
 			sumOfDrinks += beverages[i].ml
-		  const currentBeverage = beverages[i]
-			increaseBeverage(currentBeverage)
 			if (sumOfDrinks <= 0) {
 				limitSubZero()
 			}
@@ -257,7 +240,7 @@ function addCustomValue(e) {
 function createElements(value) {
 	let listItem = document.createElement('LI')
 	listItem.innerText = value
-	chart.appendChild(listItem)
+	document.querySelector('#chart').appendChild(listItem)
 }
 
 function setTodaysValue() {
@@ -273,14 +256,28 @@ function saveHistory() {
 	localStorage.setItem('savedHistory', JSON.stringify(savedHistory))
 }
 
+function test() {
+	const individualBar = document.querySelectorAll('#chart li')
+	for (let i = 0; i <= savedHistory.length; i++) {
+		individualBar[i].style.paddingTop = `${Math.floor(savedHistory[i])}vh`
+		if (savedHistory[i] < 10) {
+			individualBar[i].textContent = `0${Math.floor(savedHistory[i])}%`
+		} else {
+			individualBar[i].textContent = `${Math.floor(savedHistory[i])}%`
+		}
+	}
+	return
+}
+
 function applyHistory() {
 	saveHistory()
+	test()
 }
 
 function firstTimeCheckSavedHistoryLocalStorage() {
 	let x = localStorage.getItem('historicalValues%')
 	if (!x) {
-		localStorage.setItem('historicalValues%', JSON.stringify(beverages))
+		localStorage.setItem('historicalValues%', JSON.stringify(objectForTest))
 	} else {
 		return
 	}
@@ -293,7 +290,7 @@ setCurrentDate()
 buttons.forEach(button => button.addEventListener('click', addDrink))
 customValue.addEventListener('keypress', addCustomValue)
 winner.addEventListener('click', hideWinner)
-// beverages.forEach(createElements)
+objectForTest.forEach(createElements)
 applyHistory()
 
 // SCRAP METAL BELOW THIS POINT
