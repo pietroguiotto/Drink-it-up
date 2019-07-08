@@ -2,8 +2,4 @@ node_modules
 .eslintrc.json
 package-lock.json
 package.json
-<<<<<<< Updated upstream
-.idea/
-=======
 .DS_Store
->>>>>>> Stashed changes
