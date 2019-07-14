@@ -9,13 +9,11 @@
 - Find workaround for the array called "objectForTest" which is initialized with 31 zeros in it
 - Rename non meaningfully named variables and functions in script.js
 - Rename non meaningfully named classes and IDs in index.html and style.css
-- Remove garbage code playing hide and seek within the collection
 
 **UP NEXT**
 
 - Historical data reset every month or week to display accurate data (or just keep last 10 days)
 - Styling (mobile friendliness)
 - Validate input field
-- Merge/bundle/clean code
 - **REMOVE** static values from scripts (eg. arrays, variables..)
 - **OPTIONAL** refactoring using React
