@@ -7,7 +7,6 @@
 **ISSUES TO FIX**
 
 - Find workaround for the array called "objectForTest" which is initialized with 31 zeros in it
-- Rename non meaningfully named variables and functions in script.js
 - Rename non meaningfully named classes and IDs in index.html and style.css
 
 **UP NEXT**
