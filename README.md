@@ -12,6 +12,5 @@
 
 - Historical data reset every month or week to display accurate data (or just keep last 10 days)
 - Styling (mobile friendliness)
-- Validate input field
 - **REMOVE** static values from scripts (eg. arrays, variables..)
 - **OPTIONAL** refactoring using React
