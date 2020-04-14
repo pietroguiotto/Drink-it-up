@@ -9,83 +9,48 @@ let clock = document.querySelector('#clock')
 const winner = document.querySelector('#winnerSplashScreen')
 let customValue = document.querySelector('#customValue')
 let currentDate = new Date()
-let objectForTest = [
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0
-]
+let currentMonth = currentDate.getMonth() +1
+let currentYear = currentDate.getFullYear()
+const numberOfDays = daysInMonth(currentMonth, currentYear)
+let numberOfDaysInCurrentMonth = new Array(numberOfDays).fill(0)
 let savedHistory = []
 let sumOfDrinks = 0
 let targetGoal = 2000
 const beverages = [
 	{
-		type: 'Water glass',
+		type: 'Water 200ml',
 		ml: 200
 	},
 	{
-		type: 'Water large glass',
-		ml: 330
+		type: 'Water 500ml',
+		ml: 500
 	},
 	{
 		type: 'Water custom',
 		ml: 0
 	},
 	{
-		type: 'Coffee',
+		type: 'Coffee 200ml',
 		ml: 200
 	},
 	{
-		type: 'Tea',
+		type: 'Tea 200ml',
 		ml: 200
 	},
 	{
-		type: 'Soda glass',
-		ml: -200
-	},
-	{
-		type: 'Soda large glass',
-		ml: -330
-	},
-	{
-		type: 'Beer glass',
+		type: 'Beer 200ml',
 		ml: 200
 	},
 	{
-		type: 'Beer bottle',
+		type: 'Beer 200ml',
 		ml: 500
 	}
 ]
 
 // Functions
+function daysInMonth (month, year) {
+    return new Date(year, month, 0).getDate();
+}
 
 function addDrink() {
 	for (let i = 0; i < beverages.length; i++) {
@@ -277,7 +242,7 @@ function applyHistory() {
 function firstTimeCheckSavedHistoryLocalStorage() {
 	let x = localStorage.getItem('historicalValues%')
 	if (!x) {
-		localStorage.setItem('historicalValues%', JSON.stringify(objectForTest))
+		localStorage.setItem('historicalValues%', JSON.stringify(numberOfDaysInCurrentMonth))
 	} else {
 		return
 	}
@@ -290,7 +255,7 @@ setCurrentDate()
 buttons.forEach(button => button.addEventListener('click', addDrink))
 customValue.addEventListener('keypress', addCustomValue)
 winner.addEventListener('click', hideWinner)
-objectForTest.forEach(createElements)
+numberOfDaysInCurrentMonth.forEach(createElements)
 applyHistory()
 
 // SCRAP METAL BELOW THIS POINT
