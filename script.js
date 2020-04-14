@@ -1,13 +1,9 @@
-// Variables declaration
-
-const buttons = document.querySelectorAll('button')
 const result = document.querySelector('#sumOfDrinks')
 const amountLeftToReachGoal = document.querySelector('#amountLeftToReachGoal')
 const waterLevel = document.querySelector('#waterLevel')
 let waterPercentage = document.querySelector('#waterPercentage')
 let clock = document.querySelector('#clock')
 const winner = document.querySelector('#winnerSplashScreen')
-let customValue = document.querySelector('#customValue')
 let currentDate = new Date()
 let currentMonth = currentDate.getMonth() +1
 let currentYear = currentDate.getFullYear()
@@ -26,10 +22,6 @@ const beverages = [
 		ml: 500
 	},
 	{
-		type: 'Water custom',
-		ml: 0
-	},
-	{
 		type: 'Coffee 200ml',
 		ml: 200
 	},
@@ -42,7 +34,7 @@ const beverages = [
 		ml: 200
 	},
 	{
-		type: 'Beer 200ml',
+		type: 'Beer 500ml',
 		ml: 500
 	}
 ]
@@ -52,54 +44,47 @@ function daysInMonth (month, year) {
     return new Date(year, month, 0).getDate();
 }
 
-function addDrink() {
-	for (let i = 0; i < beverages.length; i++) {
-		if (this.textContent == beverages[i].type) {
-			sumOfDrinks += beverages[i].ml
-			if (sumOfDrinks <= 0) {
-				limitSubZero()
-			}
-			result.innerHTML = ` ${sumOfDrinks} ml`
-			goal()
-			localStorage.setItem('currentAmount', sumOfDrinks)
-			if (sumOfDrinks <= 0) {
-				result.innerHTML = `0 ml`
-				amountLeftToReachGoal.innerHTML = `2000 ml`
-			} else if (sumOfDrinks >= 2000) {
-				raisingWater()
-				goalReached()
-			}
-			raisingWater()
-			setTodaysValue()
-			applyHistory()
-			return sumOfDrinks
-		}
+const appendButtons = () => {
+	beverages.map(drink => {
+		const beveragesUl = document.querySelector('#beverages')
+		const beverageLi = document.createElement('li')
+		const beverageButton = document.createElement('button')
+		const buttonText = document.createTextNode(drink.type)
+		beverageButton.setAttribute('value', drink.ml)
+		beverageButton.classList.add('beverage-button')
+		beverageButton.appendChild(buttonText)
+		beveragesUl.append(beverageLi)
+		beverageLi.append(beverageButton) 
+	}
+		)
+}
+
+function isGoalReached() {
+	if(sumOfDrinks <= 0) {
+		limitSubZero()
+		result.innerHTML = `0 ml`
+		amountLeftToReachGoal.innerHTML = `2000 ml`
+	} else if (sumOfDrinks >= 2000) {
+		raisingWater()
+		winner.style.visibility = 'visible'
+
 	}
 }
 
-function addCustomDrink(customA) {
-	customValue.value = ''
-	if (customA >= 0) {
-		sumOfDrinks += parseInt(customA)
-		if (sumOfDrinks <= 0) {
-			limitSubZero()
-		}
+function addCustomDrink(buttonClicked) {
+	const amount = buttonClicked.target.value
+	if (amount >= 0) {
+		sumOfDrinks += parseInt(amount)
+		isGoalReached()
 		result.innerHTML = ` ${sumOfDrinks} ml`
 		goal()
 		localStorage.setItem('currentAmount', sumOfDrinks)
-		if (sumOfDrinks <= 0) {
-			result.innerHTML = `0 ml`
-			amountLeftToReachGoal.innerHTML = `2000 ml`
-		} else if (sumOfDrinks >= 2000) {
-			raisingWater()
-			goalReached()
-		}
+
 		raisingWater()
 		setTodaysValue()
 		applyHistory()
 		return sumOfDrinks
 	}
-	alert('Not a valid input')
 }
 
 function timeLeft() {
@@ -143,9 +128,6 @@ function locallyStoredAmount(value) {
 	sumOfDrinks = parseInt(value)
 	amountLeftToReachGoal.innerHTML = `${2000 - sumOfDrinks} ml`
 	result.innerHTML = `${parseInt(value)} ml`
-	if (sumOfDrinks >= 2000) {
-		goalReached()
-	}
 	raisingWater()
 	return
 }
@@ -177,15 +159,9 @@ function resetWater() {
 	waterLevel.style.height = 0
 }
 
-function goalReached() {
-	winner.style.visibility = 'visible'
-	customValue.disabled = true
-}
-
 function hideWinner() {
 	winner.style.visibility = 'hidden'
 	resetWater()
-	customValue.disabled = false
 }
 
 function limitSubZero() {
@@ -193,27 +169,18 @@ function limitSubZero() {
 	sumOfDrinks = 0
 }
 
-function addCustomValue(e) {
-	const key = e.which || e.keyCode
-	if (key === 13) {
-		addCustomDrink(customValue.value)
-		return
-	}
-	return
-}
-
-function createElements(value) {
-	let listItem = document.createElement('LI')
-	listItem.innerText = value
+function createBars() {
+	let listItem = document.createElement('li')
+	listItem.innerText = 'val'
 	document.querySelector('#chart').appendChild(listItem)
 }
 
 function setTodaysValue() {
 	const currentValueOfWater = localStorage.getItem('currentAmount')
 	let index = parseInt(localStorage.getItem('currentDate') - 1)
-	let abcd = JSON.parse(localStorage.getItem('savedHistory'))
-	abcd.splice(index, 1, parseInt(currentValueOfWater) / 20)
-	localStorage.setItem('historicalValues%', JSON.stringify(abcd))
+	let savedHistoryLocalStorage = JSON.parse(localStorage.getItem('savedHistory'))
+	savedHistoryLocalStorage.splice(index, 1, parseInt(currentValueOfWater) / 20)
+	localStorage.setItem('historicalValues%', JSON.stringify(savedHistoryLocalStorage))
 }
 
 function saveHistory() {
@@ -221,22 +188,21 @@ function saveHistory() {
 	localStorage.setItem('savedHistory', JSON.stringify(savedHistory))
 }
 
-function test() {
-	const individualBar = document.querySelectorAll('#chart li')
-	for (let i = 0; i <= savedHistory.length; i++) {
-		individualBar[i].style.paddingTop = `${Math.floor(savedHistory[i])}vh`
-		if (savedHistory[i] < 10) {
-			individualBar[i].textContent = `0${Math.floor(savedHistory[i])}%`
+function applyValuesToBars() {
+	const allBars = document.querySelectorAll('#chart li')
+	allBars.forEach((bar, index)=> {
+		bar.style.paddingTop = `${Math.floor(savedHistory[index])}vh`
+		if (savedHistory[index] < 10) {
+			bar.textContent = ` ${Math.floor(savedHistory[index])}%`
 		} else {
-			individualBar[i].textContent = `${Math.floor(savedHistory[i])}%`
+			bar.textContent = `${Math.floor(savedHistory[index])}%`
 		}
-	}
-	return
+	})
 }
-
+	
 function applyHistory() {
 	saveHistory()
-	test()
+	applyValuesToBars()
 }
 
 function firstTimeCheckSavedHistoryLocalStorage() {
@@ -249,13 +215,11 @@ function firstTimeCheckSavedHistoryLocalStorage() {
 }
 
 setInterval(timeLeft, 1000)
+appendButtons()
 checkLocalStorage()
 firstTimeCheckSavedHistoryLocalStorage()
 setCurrentDate()
-buttons.forEach(button => button.addEventListener('click', addDrink))
-customValue.addEventListener('keypress', addCustomValue)
+document.querySelectorAll('.beverage-button').forEach(button => button.addEventListener('click', addCustomDrink))
 winner.addEventListener('click', hideWinner)
-numberOfDaysInCurrentMonth.forEach(createElements)
+numberOfDaysInCurrentMonth.map(() => createBars())
 applyHistory()
-
-// SCRAP METAL BELOW THIS POINT
